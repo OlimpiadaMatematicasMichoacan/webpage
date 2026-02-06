@@ -1,29 +1,29 @@
 - id: sofia
-  quote: Excellent experience with the team. The product met our needs and the support was outstanding.
+  quote: "¡Me encantó la olimpiada! Me dio nervios al principio, pero los problemas eran como acertijos y fue muy divertido."
   author: Sofía
-  role: CEO, Acme Co
-
-- id: rodrigo
-  quote: A very useful and well-thought-out tool. It helped me optimize processes quickly.
-  author: Rodrigo
-  role: Product Manager
+  role: Participante
 
 - id: diego
-  quote: The team exceeded our expectations and delivered on time. Highly recommend.
+  quote: "Aprendí trucos nuevos para resolver problemas y conocí a otros niños que también aman las matemáticas."
   author: Diego
-  role: Head of Engineering
+  role: Participante
 
-- id: maria
-  quote: Clear communication and fast delivery. The final product is solid and reliable.
-  author: Maria
-  role: CTO
+- id: lucia
+  quote: "Mi parte favorita fue cuando trabajamos en equipo. Hicimos amigos y celebramos cuando resolvimos uno difícil."
+  author: Lucía
+  role: Participante
 
-- id: alex
-  quote: The product is easy to use and saved us hours every week.
-  author: Alex
-  role: Operations Manager
+- id: pedro
+  quote: "Estaba emocionado por la medalla, pero lo mejor fue aprender y divertirme con los juegos matemáticos."
+  author: Pedro
+  role: Participante
 
-- id: lina
-  quote: Support was responsive and helped us get set up quickly.
-  author: Lina
-  role: Customer Success
+- id: ana
+  quote: "Los profesores nos explicaron muy bien y ahora quiero practicar más para la próxima olimpiada."
+  author: Ana
+  role: Participante
+
+- id: carlos
+  quote: "Nunca pensé que las matemáticas podrían ser tan entretenidas. Volvería el próximo año sin duda."
+  author: Carlos
+  role: Participante

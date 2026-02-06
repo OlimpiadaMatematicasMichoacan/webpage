@@ -1,0 +1,53 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Card from '../components/Card.astro';
+---
+
+<PageLayout
+	title="Convocatoria 2026"
+	description="Información sobre la Convocatoria 2026 — fechas, categorías e inscripción."
+	eyebrow="Convocatoria"
+>
+	<section class="container mx-auto py-12">
+		<header class="prose">
+			<h1>Convocatoria 2026</h1>
+			<p>La Olimpiada de Matemáticas Michoacán 2026 invita a estudiantes de primaria, secundaria y bachillerato a participar en las distintas etapas del certamen. Aquí encontrarás las fechas, categorías, bases y el formulario de inscripción.</p>
+			<p><a class="btn btn-primary" href="https://olimpiadamatematicasmichoacan.org/convocatoria" target="_blank" rel="noopener">Ver convocatoria original</a></p>
+		</header>
+
+		<section class="mt-10">
+			<h2>Fechas importantes</h2>
+			<ul>
+				<li>Inicio de recepción: <strong>—</strong></li>
+				<li>Cierre de registro: <strong>—</strong></li>
+				<li>Etapa estatal: <strong>—</strong></li>
+			</ul>
+		</section>
+
+		<section class="mt-8">
+			<h2>Categorías</h2>
+			<div class="grid md:grid-cols-3 gap-6">
+				<Card title="Primaria">Información breve y requisitos para la categoría de primaria.</Card>
+				<Card title="Secundaria">Información breve y requisitos para la categoría de secundaria.</Card>
+				<Card title="Bachillerato">Información breve y requisitos para la categoría de bachillerato.</Card>
+			</div>
+		</section>
+
+		<section class="mt-8">
+			<h2>Inscripción</h2>
+			<p>Formulario de registro: <a href="https://example.com/formulario" target="_blank" rel="noopener">https://example.com/formulario</a> — reemplazar por la URL real.</p>
+		</section>
+
+		<section class="mt-8">
+			<h2>Documentos</h2>
+			<ul>
+				<li><a href="/assets/convocatoria-2026.pdf" target="_blank">Descargar convocatoria (PDF)</a> — sube el PDF a <code>/public/assets/</code></li>
+			</ul>
+		</section>
+
+		<section class="mt-8">
+			<h2>Contacto</h2>
+			<p>Correo: <a href="mailto:contacto@olimpiadamatematicasmichoacan.org">contacto@olimpiadamatematicasmichoacan.org</a></p>
+		</section>
+	</section>
+</PageLayout>
