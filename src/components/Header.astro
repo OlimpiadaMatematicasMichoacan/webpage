@@ -22,7 +22,7 @@ const navLinks = site.nav ?? [];
   <a
     href={subpath}
     aria-label={site.title}
-    class="rounded-xl overflow-hidden px-5 md:px-8 flex h-full items-center bg-[var(--color-brand-yellow)] font-bold leading-none shrink-0 md:justify-start md:text-lg md:leading-none no-underline text-[var(--color-off-black)] gap-3"
+    class="rounded-xl overflow-hidden px-5 md:px-8 flex h-full items-center bg-[var(--color-brand-yellow)] font-bold leading-none shrink min-w-0 md:shrink-0 md:justify-start md:text-lg md:leading-none no-underline text-[var(--color-off-black)] gap-3"
   >
     <Icon
       name="tabler:math-symbols"
@@ -30,9 +30,9 @@ const navLinks = site.nav ?? [];
       class="inline-block align-middle shrink-0"
       aria-hidden="true"
     />
-    <span class="whitespace-nowrap">{site.title}</span>
+    <span class="whitespace-nowrap overflow-hidden text-ellipsis">{site.title}</span>
   </a>
-  <div class="rounded-xl overflow-hidden grow bg-[var(--color-brand-yellow)] min-w-2 shrink"></div>
+  <div class="rounded-xl overflow-hidden grow bg-[var(--color-brand-yellow)] min-w-1 shrink"></div>
   <nav
     class="hidden md:flex items-center gap-1 shrink-0"
   >
@@ -46,7 +46,7 @@ const navLinks = site.nav ?? [];
   </nav>
   <div class="flex items-center gap-1 shrink-0 h-full">
     <button
-      class="inline-flex items-center gap-2 group rounded-xl text-[var(--color-off-black)] hover:bg-[var(--color-off-black)] hover:text-[var(--color-off-white)] antialiased transition-colors text-lg w-1/3 justify-center bg-[var(--color-brand-yellow)] px-6 h-full sm:w-auto md:hidden cursor-pointer"
+      class="inline-flex items-center gap-2 group rounded-xl text-[var(--color-off-black)] hover:bg-[var(--color-off-black)] hover:text-[var(--color-off-white)] antialiased transition-colors text-lg justify-center bg-[var(--color-brand-yellow)] px-6 h-full md:hidden cursor-pointer"
       type="button"
       id="nav-toggle"
       aria-label="Toggle navigation"
@@ -66,7 +66,7 @@ const navLinks = site.nav ?? [];
 </header>
 
 <!-- Mobile nav -->
-<div class="md:hidden [html[data-nav='closed']_&]:hidden flex flex-col gap-1">
+<div class="md:hidden [html[data-nav='closed']_&]:hidden flex flex-col gap-1 pt-1">
   {navLinks.map((link, i) => {
     const bg = brandColors[i % brandColors.length];
     const textColor = darkTextColors.has(bg) ? "var(--color-off-white)" : "var(--color-off-black)";

@@ -5,10 +5,8 @@ site:
   timezone: "America/Mexico_City"
   locale: "es-MX"
   nav:
-    - label: "Blog"
+    - label: "Noticias"
       href: "/blog"
-    - label: "Equipo"
-      href: "/team"
     - label: "Acerca"
       href: "/about"
     - label: "Proyectos"
