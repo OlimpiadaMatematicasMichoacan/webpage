@@ -1,0 +1,16 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Values from '../components/Values.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const authorsEntries = await getCollection('authors');
+const team = authorsEntries.map((entry) => entry.data);
+---
+
+<PageLayout
+	title="About the studio"
+	description="We shape product, brand, and code for mission-driven teams."
+	eyebrow="Studio"
+>
+</PageLayout>

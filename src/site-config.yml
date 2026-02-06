@@ -6,10 +6,10 @@ site:
   locale: "es-MX"
   nav:
     - label: "Acerca"
-      href: "/about"
+      href: "/acerca"
     - label: "Noticias"
       href: "/blog"
-    - label: "Recursos"
-      href: "/projects"
+    - label: "Prepárate"
+      href: "/recursos"
     - label: "Acceder"
       href: "https://registro.olimpiadamatematicasmichoacan.org:8443/login/index.php"
