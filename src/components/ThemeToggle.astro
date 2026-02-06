@@ -3,7 +3,7 @@
 ---
 
 <button
-	class="header-button"
+	class="rounded-xl h-full aspect-square flex items-center justify-center bg-[var(--color-brand-green)] text-[var(--color-off-black)] hover:bg-[var(--color-off-black)] hover:text-[var(--color-off-white)] transition-colors cursor-pointer"
 	type="button"
 	id="theme-toggle"
 	aria-label="Toggle theme"
@@ -30,7 +30,7 @@
 
 <script is:inline>
 const STORAGE_KEY = 'theme';
-const THEMES = ['light', 'dark', 'blue'];
+const THEMES = ['light', 'dark'];
 
 const getPreferredTheme = () => {
 	const stored = localStorage.getItem(STORAGE_KEY);

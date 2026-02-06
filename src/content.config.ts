@@ -62,6 +62,10 @@ const site = defineCollection({
 		based: z.string().optional(),
 		timezone: z.string().optional(),
 		locale: z.string().optional(),
+		nav: z.array(z.object({
+			label: z.string(),
+			href: z.string(),
+		})).default([]),
 	}),
 });
 

@@ -1,6 +1,15 @@
 site:
-  title: "Launchpad"
-  description: "A modern Astro scaffolding for agencies and studios."
-  based: "Mexico City"
+  title: "OMM"
+  description: "Olimpiada Michoacana de Matemáticas"
+  based: "Morelia"
   timezone: "America/Mexico_City"
   locale: "es-MX"
+  nav:
+    - label: "Blog"
+      href: "/blog"
+    - label: "Equipo"
+      href: "/team"
+    - label: "Acerca"
+      href: "/about"
+    - label: "Proyectos"
+      href: "/projects"

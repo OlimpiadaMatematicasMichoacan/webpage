@@ -12,5 +12,6 @@ export async function getSite() {
 		based: entry?.data.based,
 		timezone: entry?.data.timezone,
 		locale: entry?.data.locale,
+		nav: entry?.data.nav ?? [],
 	};
 }

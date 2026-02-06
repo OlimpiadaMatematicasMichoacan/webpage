@@ -21,7 +21,7 @@ export default defineConfig({
   experimental: {
     fonts: [{
         provider: fontProviders.fontsource(),
-        name: "Space Grotesk",
+        name: "Raleway",
         cssVariable: "--font-main",
     }]
     }

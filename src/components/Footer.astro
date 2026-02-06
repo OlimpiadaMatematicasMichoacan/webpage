@@ -18,7 +18,7 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<footer class="border-t border-[color:var(--color-border)] bg-[color:var(--color-surface)] py-8">
+<footer class="footer-invert border-t border-[color:var(--color-border)] py-8">
   <div class="content-shell">
     <div class="grid gap-10 border-b border-[color:var(--color-border)] pb-10 md:grid-cols-2">
       <div class="space-y-6">
@@ -65,8 +65,9 @@ const iconMap: Record<string, string> = {
           <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Navigation</p>
           <div class="grid gap-2 sm:grid-cols-2 text-sm text-ink">
             <a class="transition-colors hover:text-ink" href="/">Home</a>
-            <a class="transition-colors hover:text-ink" href="/blog">Blog</a>
-            <a class="transition-colors hover:text-ink" href="/about">About</a>
+            {site.nav.map((link) => (
+              <a class="transition-colors hover:text-ink" href={link.href}>{link.label}</a>
+            ))}
             <a class="transition-colors hover:text-ink" href="/rss.xml">RSS</a>
           </div>
         </div>
@@ -89,3 +90,27 @@ const iconMap: Record<string, string> = {
     </div>
   </div>
 </footer>
+
+<style>
+  :global(:root[data-theme="light"]) .footer-invert {
+    --color-ink: var(--color-off-white);
+    --color-muted: color-mix(in oklab, var(--color-off-white) 75%, transparent);
+    --color-paper: var(--color-body-bg);
+    --color-surface: var(--color-off-black);
+    --color-border: color-mix(in oklab, var(--color-off-white) 16%, transparent);
+    background-color: var(--color-off-black);
+    color: var(--color-off-white);
+    color-scheme: dark;
+  }
+
+  :global(:root[data-theme="dark"]) .footer-invert {
+    --color-ink: var(--color-off-black);
+    --color-muted: color-mix(in oklab, var(--color-off-black) 75%, transparent);
+    --color-paper: var(--color-off-white);
+    --color-surface: #ffffff;
+    --color-border: color-mix(in oklab, var(--color-off-black) 14%, transparent);
+    background-color: #ffffff;
+    color: var(--color-off-black);
+    color-scheme: light;
+  }
+</style>

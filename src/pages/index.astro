@@ -14,51 +14,44 @@ const site = await getSite();
 	title={site.title}
 >
 	<Hero
-		eyebrow="An Astro Blueprint"
-		title="A modern Astro scaffolding for agencies and studios."
-		description="Kickstart your next project with a solid foundation, featuring a blog, project showcases, and dark mode support."
+		title="Olimpiada Michoacana de Matem\u00e1ticas"
+		highlight="\u00a1Participa!"
+		description="Promovemos el talento matem\u00e1tico en Michoac\u00e1n a trav\u00e9s de competencias, entrenamientos y comunidad."
 		actions={[
-			{ label: 'View Blog', href: '/blog' },
-			{ label: 'Get Quote', href: '/contact' },
+			{ label: 'Convocatoria', href: '/blog' },
+			{ label: 'Conoce al equipo', href: '/team' },
 		]}
 	/>
 
-	<Sponsors
-	/>
+	<Sponsors />
 
 	<Numbers
-		eyebrow="Results"
-		title="We deliver consistently"
-		copy="A design-and-code stack ready to ship products without trading off quality."
+		eyebrow="Resultados"
+		title="Impacto en n\u00fameros"
+		copy="A\u00f1os de trabajo formando talento matem\u00e1tico."
 		stats={[
-			{ label: 'Projects shipped', value: '48', description: 'From discovery to ship without drama.' },
-			{ label: 'Average lead time', value: '6 weeks', description: 'Small teams, short cycles.' },
-			{ label: 'Client NPS', value: '72', description: 'Long-term relationships.' },
-			{ label: 'Response time', value: '<24h', description: 'Slack, email, or call.' },
+			{ label: 'Participantes', value: '500+', description: 'Estudiantes que han participado en la OMM.' },
+			{ label: 'A\u00f1os activos', value: '20+', description: 'Formando talento matem\u00e1tico.' },
+			{ label: 'Medallas nacionales', value: '48', description: 'En la Olimpiada Nacional.' },
+			{ label: 'Sedes', value: '5', description: 'En todo Michoac\u00e1n.' },
 		]}
 	/>
 
 	<Values
-		eyebrow="Values"
-		title="How we show up"
-		copy="Principles we keep front-and-center so every project ships with the same intent and craft."
+		eyebrow="Valores"
+		title="Nuestra filosof\u00eda"
+		copy="Principios que gu\u00edan nuestra misi\u00f3n educativa."
 		values={[
-			{ title: 'Clarity over noise', description: 'We write, design, and code to be understood quickly by teams and customers.' },
-			{ title: 'Bias for shipping', description: 'We prefer small, validated releases over long bets that never reach users.' },
-			{ title: 'Craft with pragmatism', description: 'Quality matters most when it serves the outcome—polish meets purpose.' },
-			{ title: 'Partnership mindset', description: 'We behave like embedded teammates, not vendors: transparent, responsive, reliable.' },
+			{ title: 'Excelencia', description: 'Buscamos el m\u00e1s alto nivel de razonamiento y resoluci\u00f3n de problemas.' },
+			{ title: 'Comunidad', description: 'Creamos un espacio donde estudiantes comparten su pasi\u00f3n por las matem\u00e1ticas.' },
+			{ title: 'Accesibilidad', description: 'Las matem\u00e1ticas son para todos, sin importar origen o recursos.' },
+			{ title: 'Mentor\u00eda', description: 'Exalumnos y profesores gu\u00edan a las nuevas generaciones.' },
 		]}
 	/>
 
-	<PostList
-		heading="Blog"
-		limit={3}
-		viewAllHref="/blog"
-	/>
-		
 	<Testimonials
-		eyebrow="Testimonials"
-		title="What our clients say"
+		eyebrow="Testimonios"
+		title="Lo que dicen"
 	/>
 
 </PageLayout>

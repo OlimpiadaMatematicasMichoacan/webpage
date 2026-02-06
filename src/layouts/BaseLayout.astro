@@ -21,7 +21,9 @@ const { title = site.title, description = site.description, image } = Astro.prop
         <BaseHead title={title} description={description} image={image} />
     </head>
     <body>
-        <Header />
+        <div class="header-shell">
+            <Header/>
+        </div>
         <main class="content-shell">
             <slot />
         </main>
@@ -30,13 +32,26 @@ const { title = site.title, description = site.description, image } = Astro.prop
 </html>
 
 <style>
+    .header-shell {
+        width: 100%;
+        max-width: var(--content-width);
+        margin: 0 auto;
+        padding-left: var(--grid-cell);
+        padding-right: var(--grid-cell);
+        padding-top: calc(var(--grid-cell) / 2);
+    }
+
     .content-shell {
-        padding-top: calc(var(--grid-cell) * 1);
+        padding-top: calc(var(--grid-cell) / 2);
     }
 
     @media (max-width: 720px) {
+        .header-shell {
+            padding-top: calc(var(--grid-cell) / 2);
+        }
+
         .content-shell {
-            padding-top: calc(var(--grid-cell) * 4);
+            padding-top: calc(var(--grid-cell) / 2);
         }
     }
 </style>

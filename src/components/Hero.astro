@@ -7,40 +7,53 @@ interface Action {
 interface Props {
 	eyebrow?: string;
 	title: string;
+	highlight?: string;
 	description?: string;
 	actions?: Action[];
 }
 
 import { withBase } from '../utils/slugify';
 
-const { eyebrow, title, description, actions = [] } = Astro.props;
+const { eyebrow, title, highlight, description, actions = [] } = Astro.props;
 ---
 
-<section class="content-shell flex items-center">
-	<div class="grid gap-4 max-w-3xl">
-		{eyebrow && <p class="eyebrow">{eyebrow}</p>}
-		<h1 class="text-4xl md:text-5xl lg:text-6xl leading-tight m-0">{title}</h1>
-		{description && <p class="text-muted text-base md:text-lg max-w-2xl m-0">{description}</p>}
-		{actions.length > 0 && (
-			<div class="flex flex-wrap gap-3 mt-3">
-				{actions.map((action) => (
-					<a class="button primary" href={withBase(action.href)}>
-						{action.label}
-					</a>
-				))}
+<section class="flex grow flex-col gap-1 md:flex-row md:min-h-[calc(100vh-8rem)]">
+	<div class="rounded-xl overflow-hidden bg-[var(--color-brand-yellow)] p-5 md:p-10 md:w-1/2">
+		<div class="flex flex-col h-full gap-8 md:gap-10">
+			{eyebrow && <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-off-black)]/60 m-0">{eyebrow}</p>}
+			<h1 class="text-4xl font-bold leading-none sm:text-4xl sm:leading-none md:text-[4.8vw] md:leading-none text-[var(--color-off-black)] m-0">
+				<slot name="title">
+					{title}{" "}
+					{highlight && <span class="text-[var(--color-brand-orange)]">{highlight}</span>}
+				</slot>
+			</h1>
+			{description && <p class="md:text-2xl text-xl md:leading-tight antialiased md:mt-auto text-[var(--color-off-black)] m-0">{description}</p>}
+			{actions.length > 0 && (
+				<div class="flex flex-col gap-3">
+					{actions.map((action) => (
+						<a
+							class="inline-flex items-center gap-2 xl:gap-5 group bg-white/90 rounded-full text-[var(--color-off-black)] hover:bg-[var(--color-off-black)] hover:text-[var(--color-off-white)] antialiased transition-colors text-xl md:text-2xl px-4 py-2 no-underline"
+							href={withBase(action.href)}
+						>
+							<span class="flex-none">{action.label}</span>
+							<div class="h-6 w-full grow overflow-hidden">
+								<div class="relative h-6 w-10 min-w-[2.5rem] transition-[width] duration-300 group-hover:w-full">
+									<svg width="801" height="23" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="absolute right-0 top-0">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="m790.128 0 10.759 11.193-10.759 11.193L788.687 21l8.465-8.807H0v-2h797.152l-8.465-8.807L790.128 0Z"></path>
+									</svg>
+								</div>
+							</div>
+						</a>
+					))}
+				</div>
+			)}
+		</div>
+	</div>
+	<div class="rounded-xl overflow-hidden p-5 md:p-10 relative z-10 aspect-square bg-[var(--color-brand-yellow)] md:aspect-auto md:w-1/2 flex items-center justify-center">
+		<slot name="visual">
+			<div class="text-[12rem] md:text-[16rem] font-bold leading-none text-[var(--color-brand-orange)] opacity-30 select-none">
+				&#8721;
 			</div>
-		)}
+		</slot>
 	</div>
 </section>
-
-<style>
-	.content-shell {
-		min-height: calc(100vh - calc(var(--grid-cell) * 1));
-	}
-
-	@media (max-width: 720px) {
-		.content-shell {
-			min-height: calc(100vh - calc(var(--grid-cell) * 4));
-		}
-	}
-</style>
