@@ -6,6 +6,9 @@ import { getCollection } from 'astro:content';
 
 const authorsEntries = await getCollection('authors');
 const team = authorsEntries.map((entry) => entry.data);
+const comite = team.filter((person) => person.type === 'comite');
+const entrenadores = team.filter((person) => person.type === 'entrenador');
+const exmiembros = team.filter((person) => person.type === 'exmiembro');
 ---
 
 <PageLayout

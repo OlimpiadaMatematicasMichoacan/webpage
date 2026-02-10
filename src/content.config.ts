@@ -18,16 +18,14 @@ const blog = defineCollection({
 });
 
 const authors = defineCollection({
-	loader: glob({ base: './src/content/authors', pattern: '**/*.yml' }),
+	loader: file('src/content/authors.yml'),
 	schema: ({ image }) =>
 		z.object({
 			id: z.string(),
-			name: z.string(),
-			bio: z.string(),
-			avatar: image().optional(),
-			role: z.string().optional(),
-			location: z.string().optional(),
-			focus: z.string().optional(),
+			title: z.string(),
+			image: image(),
+			designation: z.string(),
+			type: z.enum(['comite', 'entrenador', 'exmiembro']),
 		}),
 });
 
