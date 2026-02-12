@@ -78,4 +78,12 @@ const testimonials = defineCollection({
 		}),
 });
 
-export const collections = { blog, socials, authors, projects, site, testimonials };
+const sponsors = defineCollection({
+	loader: file('src/content/sponsors.yml'),
+	schema: z.object({
+		id: z.string(),
+		icon: z.string(),
+	}),
+});
+
+export const collections = { blog, socials, authors, projects, site, testimonials, sponsors };
