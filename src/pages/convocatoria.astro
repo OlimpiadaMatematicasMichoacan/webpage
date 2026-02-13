@@ -1,53 +1,151 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Card from '../components/Card.astro';
+import whitebelt from '../assets/belts/whitebelt.png';
+import yellowbelt from '../assets/belts/yellowbelt.png';
+import orangebelt from '../assets/belts/orangebelt.png';
+import greenbelt from '../assets/belts/greenbelt.png';
+import bluebelt from '../assets/belts/bluebelt.png';
+import redbelt from '../assets/belts/redbelt.png';
+import blackbelt from '../assets/belts/blackbelt.png';
+
+const grupos = [
+	{ nombre: 'Cinta Blanca', imagen: whitebelt.src },
+	{ nombre: 'Cinta Amarilla', imagen: yellowbelt.src },
+	{ nombre: 'Cinta Anaranjada', imagen: orangebelt.src },
+	{ nombre: 'Cinta Verde', imagen: greenbelt.src },
+	{ nombre: 'Cinta Azul', imagen: bluebelt.src },
+	{ nombre: 'Cinta Roja', imagen: redbelt.src },
+	{ nombre: 'Cinta Negra', imagen: blackbelt.src },
+];
 ---
 
 <PageLayout
 	title="Convocatoria 2026"
-	description="Información sobre la Convocatoria 2026 — fechas, categorías e inscripción."
+	description="Fechas, proceso e inscripción para la Olimpiada Michoacana de Matemáticas 2026."
 	eyebrow="Convocatoria"
 >
-	<section class="container mx-auto py-12">
-		<header class="prose">
-			<h1>Convocatoria 2026</h1>
-			<p>La Olimpiada de Matemáticas Michoacán 2026 invita a estudiantes de primaria, secundaria y bachillerato a participar en las distintas etapas del certamen. Aquí encontrarás las fechas, categorías, bases y el formulario de inscripción.</p>
-			<p><a class="btn btn-primary" href="https://olimpiadamatematicasmichoacan.org/convocatoria" target="_blank" rel="noopener">Ver convocatoria original</a></p>
+	<section class="content-shell py-12 space-y-10">
+		<header class="space-y-5 max-w-4xl">
+			<img src="/olimpiada.png" alt="Olimpiada Michoacana de Matemáticas" class="h-24 w-auto" />
+			<h1 class="text-3xl sm:text-4xl font-semibold leading-tight text-ink m-0">Olimpiada Michoacana de Matemáticas 2026</h1>
+			<p class="text-base text-muted m-0">
+				El Comité Estatal de la Olimpiada de Matemáticas en Michoacán convoca a estudiantes de instituciones públicas y
+				privadas del estado a participar en el curso de entrenamiento en línea y en el examen de colocación.
+			</p>
+			<div class="flex flex-wrap gap-3 pt-2">
+				<a href="https://registro.olimpiadamatematicasmichoacan.org:8443/login/signup.php?" target="_blank" rel="noreferrer" class="btn btn-primary">Registro</a>
+				<a href="https://registro.olimpiadamatematicasmichoacan.org:8443/login/index.php" target="_blank" rel="noreferrer" class="btn btn-secondary">Acceder a la plataforma</a>
+			</div>
 		</header>
 
-		<section class="mt-10">
-			<h2>Fechas importantes</h2>
-			<ul>
-				<li>Inicio de recepción: <strong>—</strong></li>
-				<li>Cierre de registro: <strong>—</strong></li>
-				<li>Etapa estatal: <strong>—</strong></li>
+		<section class="space-y-4">
+			<h2 class="text-2xl font-semibold text-ink m-0">Fechas importantes</h2>
+			<ul class="space-y-2 text-base text-muted list-disc pl-5">
+				<li><strong class="text-ink">Examen de colocación:</strong> 12, 13 o 14 de febrero de 2026.</li>
+				<li><strong class="text-ink">Segundo examen de colocación:</strong> por definir.</li>
 			</ul>
+			<p class="text-base text-muted m-0">Puedes escoger el día y el horario que más te convenga para realizar el examen.</p>
 		</section>
 
-		<section class="mt-8">
-			<h2>Categorías</h2>
-			<div class="grid md:grid-cols-3 gap-6">
-				<Card title="Primaria">Información breve y requisitos para la categoría de primaria.</Card>
-				<Card title="Secundaria">Información breve y requisitos para la categoría de secundaria.</Card>
-				<Card title="Bachillerato">Información breve y requisitos para la categoría de bachillerato.</Card>
+		<section class="space-y-4">
+			<h2 class="text-2xl font-semibold text-ink m-0">Objetivo y proceso</h2>
+			<p class="text-base text-muted m-0">
+				La Olimpiada busca promover el aprendizaje de las matemáticas de manera creativa, lógica y divertida. Participar es
+				totalmente gratuito.
+			</p>
+			<p class="text-base text-muted m-0">
+				Para iniciar, presenta un examen con problemas de ingenio. Si tu resultado es satisfactorio, serás asignado a un grupo
+				de entrenamiento y podrás avanzar mediante evaluaciones periódicas.
+			</p>
+			<p class="text-base text-muted m-0">
+				Te recomendamos prepararte en la sección de <a href="/recursos" class="underline">recursos</a>.
+			</p>
+		</section>
+
+		<section class="space-y-5">
+			<h2 class="text-2xl font-semibold text-ink m-0">Grupos de entrenamiento</h2>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				{grupos.map((grupo) => (
+					<article class="rounded-xl border border-(--color-border) bg-(--color-card-bg) p-4 text-center space-y-3">
+						<img src={grupo.imagen} alt={grupo.nombre} class="h-28 w-auto mx-auto" />
+						<h3 class="text-lg font-semibold text-ink m-0">{grupo.nombre}</h3>
+					</article>
+				))}
 			</div>
 		</section>
 
-		<section class="mt-8">
-			<h2>Inscripción</h2>
-			<p>Formulario de registro: <a href="https://example.com/formulario" target="_blank" rel="noopener">https://example.com/formulario</a> — reemplazar por la URL real.</p>
+		<section class="space-y-4">
+			<h2 class="text-2xl font-semibold text-ink m-0">Preguntas frecuentes</h2>
+			<div class="space-y-3">
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Qué conocimientos necesito para resolver el examen de colocación?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Predominan el ingenio y la lógica. Con conocimientos básicos puede ser suficiente; practicar aumenta tus posibilidades de avanzar.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Cuánto dura el examen de colocación?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Dependiendo de la categoría, entre 1 y 2 horas. El tiempo inicia cuando abres el examen.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Qué documentos necesito presentar para participar?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Puedes presentar el examen sin documentación. Para emitir diploma se podrá solicitar comprobante de fecha de nacimiento y constancia escolar de Michoacán.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Qué material puedo usar durante el examen?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Lápiz, pluma, colores, hojas, regla y compás. No se permite calculadora ni ayuda externa.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Cómo me preparo para el examen de colocación?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Al registrarte tendrás acceso a exámenes de práctica, soluciones y curso en línea. También puedes usar los <a href="/recursos" class="underline">recursos de preparación</a>.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Cuánto tiempo debería dedicarle a entrenar?</summary>
+					<p class="text-base text-muted mt-3 mb-0">El tiempo que puedas dedicar está bien. Incluso pocas horas por semana pueden dar beneficios importantes en razonamiento y confianza.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿Qué pasa si ya tenía cinta el año pasado?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Si sigues en la misma categoría, tu cinta puede bajar temporalmente un grado; si cambias de categoría, puede bajar dos grados temporalmente.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Si ya tengo cinta, ¿debo hacer el examen de colocación?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Es recomendable para practicar y tener opción de avanzar de cinta, aunque no es estrictamente obligatorio.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Se me pasó el examen. ¿Aún puedo participar?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Sí. Regístrate y escríbenos a <a href="mailto:olimpiada.omm@gmail.com" class="underline">olimpiada.omm@gmail.com</a> para revisar tu caso.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Si no avanzo de cinta o no presento un examen, ¿me descalifican?</summary>
+					<p class="text-base text-muted mt-3 mb-0">No. Puedes seguir participando mientras existan concursos en los que cumplas los requisitos de elegibilidad.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">¿En qué concursos externos participa Michoacán?</summary>
+					<div class="text-base text-muted mt-3 mb-0 space-y-2">
+						<p class="m-0">Durante el año se participa en concursos como Femenil OMM, OMMEB, Olimpiada Regional y Concurso Nacional OMM, según convocatorias vigentes.</p>
+						<p class="m-0">Para representar a Michoacán normalmente se requiere avanzar en el proceso estatal y aprobar evaluaciones de selección.</p>
+					</div>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Quiero ayudar a difundir el evento, ¿cómo?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Comparte esta página y el póster oficial con tu escuela, amistades y redes. Tu apoyo ayuda a que más estudiantes participen.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Soy profe o trabajo en una escuela, ¿cómo puede participar mi grupo?</summary>
+					<p class="text-base text-muted mt-3 mb-0">Regístrate en la plataforma, revisa el curso y organiza sesiones de práctica con tus estudiantes. Si necesitas apoyo, escríbenos a <a href="mailto:olimpiada.omm@gmail.com" class="underline">olimpiada.omm@gmail.com</a>.</p>
+				</details>
+				<details class="rounded-lg border border-(--color-border) px-4 py-3">
+					<summary class="cursor-pointer font-medium text-ink">Tengo otra duda</summary>
+					<p class="text-base text-muted mt-3 mb-0">Escríbenos a <a href="mailto:olimpiada.omm@gmail.com" class="underline">olimpiada.omm@gmail.com</a> y con gusto te respondemos.</p>
+				</details>
+			</div>
 		</section>
 
-		<section class="mt-8">
-			<h2>Documentos</h2>
-			<ul>
-				<li><a href="/assets/convocatoria-2026.pdf" target="_blank">Descargar convocatoria (PDF)</a> — sube el PDF a <code>/public/assets/</code></li>
-			</ul>
-		</section>
-
-		<section class="mt-8">
-			<h2>Contacto</h2>
-			<p>Correo: <a href="mailto:contacto@olimpiadamatematicasmichoacan.org">contacto@olimpiadamatematicasmichoacan.org</a></p>
+		<section class="space-y-4">
+			<h2 class="text-2xl font-semibold text-ink m-0">Difusión</h2>
+			<p class="text-base text-muted m-0">Ayúdanos a compartir la convocatoria. Puedes descargar y reenviar el material promocional:</p>
+			<a href="/Poster2026_highres.webp" target="_blank" rel="noreferrer">
+				<img src="/Poster2026_highres.webp" alt="Póster Convocatoria 2026" class="w-full max-w-3xl rounded-xl border border-(--color-border)" />
+			</a>
+			<p class="text-sm text-muted m-0">Somos una organización sin fines de lucro. Las decisiones del jurado son inapelables.</p>
 		</section>
 	</section>
 </PageLayout>

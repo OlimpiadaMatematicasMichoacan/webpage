@@ -25,6 +25,7 @@ const authors = defineCollection({
 			title: z.string(),
 			image: image(),
 			designation: z.string(),
+			link: z.string().optional(),
 			type: z.enum(['comite', 'entrenador', 'exmiembro']),
 		}),
 });

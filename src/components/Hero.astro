@@ -51,9 +51,272 @@ const { eyebrow, title, highlight, description, actions = [] } = Astro.props;
 	</div>
 	<div class="rounded-xl overflow-hidden p-5 md:p-10 relative z-10 aspect-square bg-[var(--color-brand-yellow)] md:aspect-auto md:w-1/2 flex items-center justify-center">
 		<slot name="visual">
-			<div class="text-[12rem] md:text-[16rem] font-bold leading-none text-[var(--color-brand-orange)] opacity-30 select-none">
-				&#8721;
+			<div class="hero-primitives-wrap relative w-full max-w-[26rem]" aria-hidden="true">
+				<div class="hero-grid-glow"></div>
+				<div class="hero-primitives-grid relative z-10 w-full grid grid-cols-3 gap-2 md:gap-4">
+					<div class="hero-primitive shape-circle"></div>
+					<div class="hero-primitive shape-plus"></div>
+					<div class="hero-primitive shape-hex"></div>
+					<div class="hero-primitive shape-ring"></div>
+					<div class="hero-primitive shape-square"></div>
+					<div class="hero-primitive shape-triangle"></div>
+					<div class="hero-primitive shape-diamond"></div>
+					<div class="hero-primitive shape-bars"></div>
+					<div class="hero-primitive shape-dot"></div>
+				</div>
 			</div>
 		</slot>
 	</div>
 </section>
+
+<script>
+	import { gsap } from 'gsap';
+
+	const brandColors = [
+		'var(--color-brand-orange)',
+		'var(--color-brand-pink)',
+		'var(--color-brand-green)',
+		'var(--color-brand-blue)',
+	];
+
+	const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (!reduceMotion) {
+		const wraps = gsap.utils.toArray('.hero-primitives-wrap');
+
+		wraps.forEach((wrap) => {
+			if (!(wrap instanceof HTMLElement)) {
+				return;
+			}
+
+			if (wrap.dataset.animReady === 'true') {
+				return;
+			}
+			wrap.dataset.animReady = 'true';
+
+			const primitives = Array.from(wrap.querySelectorAll<HTMLElement>('.hero-primitive'));
+			const grid = wrap.querySelector('.hero-primitives-grid');
+			const glow = wrap.querySelector('.hero-grid-glow');
+
+			primitives.forEach((primitive, index) => {
+				primitive.style.setProperty('--primitive-color', brandColors[index % brandColors.length]);
+			});
+
+			gsap.set(primitives, { transformOrigin: '50% 50%' });
+			gsap.set(glow, { transformOrigin: '50% 50%' });
+
+			gsap.fromTo(
+				primitives,
+				{ opacity: 0, scale: 0.6, y: 28, rotate: -10 },
+				{
+					opacity: 0.88,
+					scale: 1,
+					y: 0,
+					rotate: 0,
+					duration: 1.2,
+					stagger: {
+						each: 0.06,
+						from: 'center',
+					},
+					ease: 'power3.out',
+				}
+			);
+
+			gsap.to(primitives, {
+				y: 'random(-14, 14)',
+				x: 'random(-8, 8)',
+				rotate: 'random(-24, 24)',
+				scale: 'random(0.84, 1.17)',
+				opacity: 'random(0.45, 1)',
+				duration: 'random(2.4, 4.2)',
+				stagger: 0.08,
+				repeat: -1,
+				yoyo: true,
+				repeatRefresh: true,
+				ease: 'sine.inOut',
+			});
+
+			gsap.to(primitives, {
+				'--primitive-color': () => brandColors[Math.floor(Math.random() * brandColors.length)],
+				duration: 'random(2.8, 4.6)',
+				stagger: 0.12,
+				repeat: -1,
+				yoyo: true,
+				repeatRefresh: true,
+				ease: 'sine.inOut',
+			});
+
+			gsap.to(primitives, {
+				scale: '+=0.05',
+				duration: 1.2,
+				stagger: {
+					each: 0.05,
+					from: 'edges',
+					repeat: -1,
+					yoyo: true,
+				},
+				ease: 'sine.inOut',
+			});
+
+			if (grid) {
+				gsap.to(grid, {
+					rotate: 4,
+					scale: 1.035,
+					duration: 6.2,
+					repeat: -1,
+					yoyo: true,
+					ease: 'sine.inOut',
+				});
+			}
+
+			if (glow) {
+				gsap.to(glow, {
+					opacity: 0.72,
+					scale: 1.1,
+					duration: 3,
+					repeat: -1,
+					yoyo: true,
+					ease: 'sine.inOut',
+				});
+			}
+
+			if (grid && glow) {
+				const handlePointerMove = (event: PointerEvent) => {
+					const rect = wrap.getBoundingClientRect();
+					const pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+					const pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+
+					gsap.to(grid, {
+						x: pointerX * 10,
+						y: pointerY * 10,
+						duration: 0.6,
+						ease: 'power3.out',
+						overwrite: true,
+					});
+
+					gsap.to(glow, {
+						x: pointerX * 18,
+						y: pointerY * 18,
+						duration: 0.8,
+						ease: 'power3.out',
+						overwrite: true,
+					});
+				};
+
+				const handlePointerLeave = () => {
+					gsap.to([grid, glow], {
+						x: 0,
+						y: 0,
+						duration: 0.9,
+						ease: 'power2.out',
+						overwrite: true,
+					});
+				};
+
+				wrap.addEventListener('pointermove', handlePointerMove);
+				wrap.addEventListener('pointerleave', handlePointerLeave);
+			}
+		});
+	}
+</script>
+
+<style>
+	.hero-primitives-wrap {
+		isolation: isolate;
+	}
+
+	.hero-grid-glow {
+		position: absolute;
+		inset: 8%;
+		border-radius: 1.2rem;
+		background: radial-gradient(circle at 30% 30%, color-mix(in oklab, var(--color-brand-orange) 40%, white), transparent 64%);
+		opacity: 0.45;
+		filter: blur(14px);
+		z-index: 0;
+	}
+
+	.hero-primitive {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		background-color: color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 80%, white);
+		opacity: 0.88;
+		position: relative;
+	}
+
+	.shape-circle {
+		border-radius: 9999px;
+	}
+
+	.shape-square {
+		border-radius: 0.8rem;
+	}
+
+	.shape-ring {
+		border-radius: 9999px;
+		background: transparent;
+		border: 0.45rem solid color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 78%, white);
+	}
+
+	.shape-diamond {
+		transform: rotate(45deg) scale(0.85);
+		border-radius: 0.6rem;
+	}
+
+	.shape-triangle {
+		clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+		border-radius: 0;
+	}
+
+	.shape-plus {
+		background: transparent;
+	}
+
+	.shape-plus::before,
+	.shape-plus::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		border-radius: 9999px;
+		background-color: color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 80%, white);
+	}
+
+	.shape-plus::before {
+		width: 30%;
+		height: 100%;
+	}
+
+	.shape-plus::after {
+		width: 100%;
+		height: 30%;
+	}
+
+	.shape-hex {
+		clip-path: polygon(25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0% 50%);
+	}
+
+	.shape-bars {
+		background: repeating-linear-gradient(
+			90deg,
+			color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 86%, white) 0,
+			color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 86%, white) 18%,
+			transparent 18%,
+			transparent 34%
+		);
+		border-radius: 0.65rem;
+	}
+
+	.shape-dot {
+		background: transparent;
+	}
+
+	.shape-dot::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		width: 36%;
+		height: 36%;
+		border-radius: 9999px;
+		background-color: color-mix(in oklab, var(--primitive-color, var(--color-brand-orange)) 82%, white);
+	}
+</style>

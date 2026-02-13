@@ -20,19 +20,10 @@ const iconMap: Record<string, string> = {
 
 <footer class="footer-invert border-t border-[color:var(--color-border)] py-8">
   <div class="content-shell">
-    <div class="grid gap-10 border-b border-[color:var(--color-border)] pb-10 md:grid-cols-2">
-      <div class="space-y-6">
-        <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Resources</p>
-        <div class="grid gap-2 sm:grid-cols-2 text-sm text-ink">
-          <a class="transition-colors hover:text-ink" href="https://astro.build" target="_blank">Astro Docs</a>
-          <a class="transition-colors hover:text-ink" href="https://docs.astro.build/en/guides/content-collections/" target="_blank">Content collections</a>
-          <a class="transition-colors hover:text-ink" href="https://tailwindcss.com/docs" target="_blank">Tailwind docs</a>
-          <a class="transition-colors hover:text-ink" href="https://github.com/withastro/astro" target="_blank">Astro GitHub</a>
-        </div>
-      </div>
+    <div class="grid gap-10 border-b border-[color:var(--color-border)] pb-10">
       <div class="grid gap-8">
         <div class="grid gap-3">
-          <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Connect</p>
+          <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Redes Sociales</p>
           <div class="grid gap-2 sm:grid-cols-2 text-sm text-ink">
             {socials.map((social) => {
               const iconName = social.id ? iconMap[social.id.toLowerCase()] : undefined;
@@ -62,9 +53,9 @@ const iconMap: Record<string, string> = {
           </div>
         </div>
         <div class="grid gap-3">
-          <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Navigation</p>
+          <p class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink">Navegación</p>
           <div class="grid gap-2 sm:grid-cols-2 text-sm text-ink">
-            <a class="transition-colors hover:text-ink" href="/">Home</a>
+            <a class="transition-colors hover:text-ink" href="/">Inicio</a>
             {site.nav.map((link) => (
               <a class="transition-colors hover:text-ink" href={link.href}>{link.label}</a>
             ))}

@@ -6,16 +6,10 @@ interface Stat {
 }
 
 interface Props {
-  title?: string;
-  eyebrow?: string;
-  copy?: string;
   stats?: Stat[];
 }
 
 const {
-  title = 'Resultados',
-  eyebrow,
-  copy,
   stats = [],
 } = Astro.props as Props;
 
@@ -28,12 +22,6 @@ const colors = [
 ---
 
 <section class="flex flex-col gap-1">
-  <div class="rounded-xl overflow-hidden p-5 md:p-10 flex bg-[var(--color-paper)]">
-    <div class="space-y-2 max-w-2xl">
-      {eyebrow && <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)]  m-0">{eyebrow}</p>}
-      {title && <h2 class="md:text-2xl text-xl md:leading-tight antialiased m-0">{title}</h2>}
-      {copy && <p class="text-base text-[var(--color-ink)]  m-0">{copy}</p>}
-    </div>
   </div>
   {stats.length > 0 && (
     <div class="grid gap-1 sm:grid-cols-2 lg:grid-cols-4">

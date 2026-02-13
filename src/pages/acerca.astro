@@ -1,7 +1,8 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Values from '../components/Values.astro';
 import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
+import placeholderAbout from '../assets/blog-placeholder-about.png';
 import { getCollection } from 'astro:content';
 
 const authorsEntries = await getCollection('authors');
@@ -12,15 +13,28 @@ const exmiembros = team.filter((person) => person.type === 'exmiembro');
 ---
 
 <PageLayout
-	title="About the studio"
-	description="We shape product, brand, and code for mission-driven teams."
-	eyebrow="Studio"
+	title="Acerca de la OMM Michoacán"
+	description="Conoce la misión y al equipo que impulsa la Olimpiada Michoacana de Matemáticas."
+	eyebrow="Acerca"
 >
-	<section class="content-shell py-12 space-y-8"> 
-		<div class="space-y-3 max-w-3xl">
-			<p>
-				El objetivo de la Olimpiada Mexicana de Matemáticas (OMM) es promover el estudio de las matemáticas en forma creativa, alejándose del estudio tradicional que promueve la memorización y mecanización, y buscando desarrollar el razonamiento y la imaginación. Es un programa de la Sociedad Matemática Mexicana. Entre las actividades del comité organizador nacional está la realización del Concurso Nacional para estudiantes preuniversitarios. Este concurso es el más importante en nuestro país a nivel bachillerato, así como la Olimpiada Internacional de Matemáticas lo es a nivel mundial.
-			</p>
+	<section class="content-shell py-12 space-y-8">
+		<div class="grid gap-8 items-center lg:grid-cols-[1.3fr_1fr]">
+			<div class="space-y-4 max-w-3xl">
+				<p class="text-xs uppercase tracking-[0.3em] text-subtle m-0">Nuestra misión</p>
+				<h1 class="text-3xl sm:text-4xl font-semibold leading-tight text-ink m-0">Matemáticas con creatividad, comunidad y propósito</h1>
+				<p class="text-base text-muted m-0">
+					La Olimpiada Mexicana de Matemáticas (OMM) promueve el estudio de las matemáticas de forma creativa,
+					alejándose de la memorización mecánica y fortaleciendo el razonamiento, la imaginación y la resolución de
+					problemas.
+				</p>
+				<p class="text-base text-muted m-0">
+					En Michoacán, construimos una comunidad de estudiantes, docentes y exolímpicos que acompaña el proceso de
+					formación desde niveles iniciales hasta etapas de selección nacional.
+				</p>
+			</div>
+			<figure class="m-0 rounded-2xl overflow-hidden border border-(--color-border) bg-(--color-card-bg)">
+				<Image src={placeholderAbout} alt="Comunidad de la Olimpiada Michoacana de Matemáticas" class="w-full h-full object-cover" />
+			</figure>
 		</div>
 	</section>
 
@@ -33,10 +47,11 @@ const exmiembros = team.filter((person) => person.type === 'exmiembro');
 			</p>
 		</header>
 
-		<div class="grid gap-6 md:grid-cols-3">
+		<div class="grid gap-6 md:grid-cols-4">
 			{comite.map((person) => (
 				<Card
 					title={person.title}
+					href={person.link && person.link.trim() ? person.link : undefined}
 					description={person.designation}
 					image={person.image}
 					imageAlt={person.title}
@@ -54,10 +69,11 @@ const exmiembros = team.filter((person) => person.type === 'exmiembro');
 			</p>
 		</header>
 
-		<div class="grid gap-6 md:grid-cols-3">
+		<div class="grid gap-6 md:grid-cols-5">
 			{entrenadores.map((person) => (
 				<Card
 					title={person.title}
+					href={person.link && person.link.trim() ? person.link : undefined}
 					description={person.designation}
 					image={person.image}
 					imageAlt={person.title}
@@ -75,10 +91,11 @@ const exmiembros = team.filter((person) => person.type === 'exmiembro');
 			</p>
 		</header>
 
-		<div class="grid gap-6 md:grid-cols-3">
+		<div class="grid gap-6 md:grid-cols-6">
 			{exmiembros.map((person) => (
 				<Card
 					title={person.title}
+					href={person.link && person.link.trim() ? person.link : undefined}
 					description={person.designation}
 					image={person.image}
 					imageAlt={person.title}
@@ -86,19 +103,4 @@ const exmiembros = team.filter((person) => person.type === 'exmiembro');
 			))}
 		</div>
 	</section>
-
-	<div class="mt-12 md:mt-16">
-		<Values
-			useShell={false}
-			eyebrow="Values"
-			title="How we show up"
-			copy="Principles we keep front-and-center so every project ships with the same intent and craft."
-			values={[
-				{ title: 'Clarity over noise', description: 'We write, design, and code to be understood quickly by teams and customers.' },
-				{ title: 'Bias for shipping', description: 'We prefer small, validated releases over long bets that never reach users.' },
-				{ title: 'Craft with pragmatism', description: 'Quality matters most when it serves the outcome—polish meets purpose.' },
-				{ title: 'Partnership mindset', description: 'We behave like embedded teammates, not vendors: transparent, responsive, reliable.' },
-			]}
-		/>
-	</div>
 </PageLayout>
