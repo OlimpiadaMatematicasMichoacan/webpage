@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <section>
   {eyebrow && <p class="text-[0.65rem] font-semibold uppercase text-subtle m-0">{eyebrow}</p>} 
 	{title && <h2 class="text-3xl sm:text-4xl font-semibold leading-tight text-ink m-0">{title}</h2>} 
-    <div class="overflow-hidden p-[var(--grid-cell)]">
-        <div class="flex items-center gap-10 md:gap-30" id="cloned">
+    <div class="overflow-hidden p-(--grid-cell)">
+        <div class="flex items-center gap-8 sm:gap-12 md:gap-16 lg:gap-24" id="cloned">
             {sponsors.map((sponsor) => (
-              <div class="text-ink flex-1 text-2xl whitespace-nowrap flex items-center justify-center gap-3 w-28">
-                <Icon name={sponsor.icon} class="h-8 w-auto max-w-full" />
+              <div class="text-ink shrink-0 whitespace-nowrap flex items-center justify-center w-28 sm:w-36 md:w-44 lg:w-52">
+                <Icon name={sponsor.icon} class="h-10 sm:h-12 md:h-14 lg:h-16 w-auto max-w-full" />
               </div>
             ))}
         </div>

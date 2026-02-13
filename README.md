@@ -1,12 +1,15 @@
-# Astro Launchpad
+# OMM
 
-An Astro starter tailored for agencies and studios: MDX blog, global search, RSS, sitemap, light/dark/blue themes, and components ready to sell services or publish content.
+Este es el repositorio de la nueva página web de la Olimpiada Michoacana de Matemáticas. 
 
-![](./public/SS-1.png)
+## TL;DR
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/static-site?referralCode=welcome)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/roicort/launchpad)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Froicort%2Flaunchpad)
+```sh
+bun install
+bun run dev
+```
+
+Página web de la Olimpiada Michoacana de Matemáticas hecha con Astro, Tailwind CSS y Bun. Incluye blog, búsqueda, temas oscuros, SEO optimizado y Lighthouse 100.
 
 ## Features
 - [Lighthouse Score: 100](https://pagespeed.web.dev/analysis/https-roicort-github-io-launchpad/xthz1r5i4v?form_factor=mobile)
@@ -18,15 +21,15 @@ An Astro starter tailored for agencies and studios: MDX blog, global search, RSS
 - RSS (`/rss.xml`) and sitemap (`/sitemap-index.xml`) generated automatically
 
 
-<div style="display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 20px;">
-    <img src="./public/SS-2.png" style="width: 180px; vertical-align: middle;" />
-    <img src="./public/SS-3.png" style="width: 180px; vertical-align: middle;" />
-    <img src="./public/SS-4.png" style="width: 180px; vertical-align: middle;" />
-</div>
+## Requerimientos
 
-
-## Requirements
 - Bun
+
+```sh
+curl -fsSL https://bun.com/install | bash
+```
+
+
 - Astro @latest
 - Tailwdind CSS
 
@@ -68,11 +71,3 @@ heroImage: ../../assets/blog/ship.jpg
 - Navigation and hero actions in [src/pages/index.astro](src/pages/index.astro).
 - Colors, type, and utilities in `src/styles/global.css`.
 - Key components: header with search and toggles ([src/components/Header.astro](src/components/Header.astro)), base layout ([src/layouts/BaseLayout.astro](src/layouts/BaseLayout.astro)).
-
-## Available scripts
-- `npm run dev`: server on `localhost:4321` (Astro default).
-- `npm run build`: outputs `dist/` ready to deploy.
-- `npm run preview`: serves the built site locally.
-
-## Deploy
-Output is static HTML. Upload `dist/` to your platform of choice (Netlify, Vercel, Cloudflare Pages, S3+CDN). Set `BASE_URL` if you publish under a subpath.

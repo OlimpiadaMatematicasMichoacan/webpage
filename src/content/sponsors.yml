@@ -1,9 +1,15 @@
-- id: "omm"
-  icon: "sponsors/enes"
+- id: "ccm"
+  icon: "sponsors/ccm"
 
 - id: "enes"
   icon: "sponsors/enes"
 
-- id: "umich"
-  icon: "sponsors/enes"
+- id: "umsnh"
+  icon: "sponsors/umsnh"
+
+- id: "unam"
+  icon: "sponsors/unam"
+
+- id: "secihti"
+  icon: "sponsors/secihti"
 
