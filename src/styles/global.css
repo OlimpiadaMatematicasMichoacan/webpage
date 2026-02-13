@@ -33,8 +33,8 @@
 		color-scheme: dark;
 		--color-ink: var(--color-off-white);
 		--color-muted: color-mix(in oklab, var(--color-ink) 75%, transparent);
-		--color-paper: black;
-		--color-surface: var(--color-off-black);
+		--color-paper: var(--color-off-black);
+		--color-surface:  black;
 		--color-border: color-mix(in oklab, var(--color-ink) 16%, transparent);
 		--grid-line: color-mix(in oklab, var(--color-ink) 10%, transparent);
 	}
