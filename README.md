@@ -5,11 +5,13 @@ Este es el repositorio de la nueva página web de la Olimpiada Michoacana de Mat
 ## TL;DR
 
 ```sh
-bun install
-bun run dev
+# One-liner (asume que Bun ya está instalado):
+git clone https://github.com/OlimpiadaMatematicasMichoacan/webpage.git && cd webpage && bun install && bun run dev
+
+# One-liner TODO-ALL (instala Bun, clona, instala deps y arranca) — macOS / Linux:
+curl -fsSL https://bun.com/install | bash && export BUN_INSTALL="$HOME/.bun"; export PATH="$BUN_INSTALL/bin:$PATH"; git clone https://github.com/OlimpiadaMatematicasMichoacan/webpage.git && cd webpage && bun install && bun run dev
 ```
 
-Página web de la Olimpiada Michoacana de Matemáticas hecha con Astro, Tailwind CSS y Bun. Incluye blog, búsqueda, temas oscuros, SEO optimizado y Lighthouse 100.
 
 ## Features
 - [Lighthouse Score: 100](https://pagespeed.web.dev/analysis/https-roicort-github-io-launchpad/xthz1r5i4v?form_factor=mobile)
