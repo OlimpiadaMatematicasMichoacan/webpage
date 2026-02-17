@@ -102,9 +102,24 @@
 		color: color-mix(in oklab, var(--color-ink) 40%, transparent);
 	}
 
+	.pill { display: inline-block; padding: 0.06rem 0.5rem; border-radius: 999px; font-weight: 600; line-height: 1; vertical-align: baseline; }
+	.pill--green  { background: var(--color-brand-green); color: var(--color-off-black); }
+	.pill--pink   { background: var(--color-brand-pink);  color: var(--color-off-black); }
+	.pill--blue   { background: var(--color-brand-blue);  color: var(--color-off-white); }
+	.pill--yellow { background: var(--color-brand-yellow); color: var(--color-off-black); }
+	.pill--orange { background: var(--color-brand-orange); color: var(--color-off-white); }
+
+	@supports (color: color-contrast(#000 vs #fff, #000)) {
+	  .pill--green  { color: color-contrast(var(--color-brand-green)  vs var(--color-off-white), var(--color-off-black)); }
+	  .pill--pink   { color: color-contrast(var(--color-brand-pink)   vs var(--color-off-white), var(--color-off-black)); }
+	  .pill--blue   { color: color-contrast(var(--color-brand-blue)   vs var(--color-off-white), var(--color-off-black)); }
+	  .pill--yellow { color: color-contrast(var(--color-brand-yellow) vs var(--color-off-white), var(--color-off-black)); }
+	  .pill--orange { color: color-contrast(var(--color-brand-orange) vs var(--color-off-white), var(--color-off-black)); }
+	}
+
 	.hover\:text-ink:hover {
 		color: var(--color-ink);
-	}
+	} 
 
 	.theme-toggle {
 		display: inline-flex;

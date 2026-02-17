@@ -17,6 +17,7 @@ const grupos = [
 	{ nombre: 'Cinta Roja', imagen: redbelt.src },
 	{ nombre: 'Cinta Negra', imagen: blackbelt.src },
 ];
+
 ---
 
 <PageLayout
@@ -41,8 +42,8 @@ const grupos = [
 		<section class="space-y-4">
 			<h2 class="text-2xl font-semibold text-ink m-0">Fechas importantes</h2>
 			<ul class="space-y-2 text-base text-muted list-disc pl-5">
-				<li><strong class="text-ink">Examen de colocación:</strong> 12, 13 o 14 de febrero de 2026.</li>
-				<li><strong class="text-ink">Segundo examen de colocación:</strong> por definir.</li>
+				<li><strong >Examen de colocación:</strong> <span class="pill pill--green">12, 13 o 14 de febrero de 2026</span>.</li>
+				<li><strong >Segundo examen de colocación:</strong> <span class="pill pill--green">por definir</span>.</li>
 			</ul>
 			<p class="text-base text-muted m-0">Puedes escoger el día y el horario que más te convenga para realizar el examen.</p>
 		</section>
@@ -58,7 +59,7 @@ const grupos = [
 				de entrenamiento y podrás avanzar mediante evaluaciones periódicas.
 			</p>
 			<p class="text-base text-muted m-0">
-				Te recomendamos prepararte en la sección de <a href="/recursos" class="underline">recursos</a>.
+				Te recomendamos prepararte en la sección de <a href="/recursos" class="underline pill pill--blue">recursos</a>.
 			</p>
 		</section>
 
@@ -83,7 +84,7 @@ const grupos = [
 				</details>
 				<details class="rounded-lg border border-(--color-border) px-4 py-3">
 					<summary class="cursor-pointer font-medium text-ink">¿Cuánto dura el examen de colocación?</summary>
-					<p class="text-base text-muted mt-3 mb-0">Dependiendo de la categoría, entre 1 y 2 horas. El tiempo inicia cuando abres el examen.</p>
+				<p class="text-base text-muted mt-3 mb-0">Dependiendo de la categoría, <span class="pill pill--pink">entre 1 y 2 horas</span>. El tiempo inicia cuando abres el examen.</p>
 				</details>
 				<details class="rounded-lg border border-(--color-border) px-4 py-3">
 					<summary class="cursor-pointer font-medium text-ink">¿Qué documentos necesito presentar para participar?</summary>
@@ -95,7 +96,7 @@ const grupos = [
 				</details>
 				<details class="rounded-lg border border-(--color-border) px-4 py-3">
 					<summary class="cursor-pointer font-medium text-ink">¿Cómo me preparo para el examen de colocación?</summary>
-					<p class="text-base text-muted mt-3 mb-0">Al registrarte tendrás acceso a exámenes de práctica, soluciones y curso en línea. También puedes usar los <a href="/recursos" class="underline">recursos de preparación</a>.</p>
+					<p class="text-base text-muted mt-3 mb-0">Al registrarte tendrás acceso a exámenes de práctica, soluciones y curso en línea. También puedes usar los <a href="/recursos" class="underline pill pill--blue">recursos de preparación</a>.</p>
 				</details>
 				<details class="rounded-lg border border-(--color-border) px-4 py-3">
 					<summary class="cursor-pointer font-medium text-ink">¿Cuánto tiempo debería dedicarle a entrenar?</summary>
@@ -149,3 +150,4 @@ const grupos = [
 		</section>
 	</section>
 </PageLayout>
+
