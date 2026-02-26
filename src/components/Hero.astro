@@ -13,8 +13,21 @@ interface Props {
 }
 
 import { withBase } from '../utils/slugify';
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 
 const { eyebrow, title, highlight, description, actions = [] } = Astro.props;
+
+// grab socials data for display in hero
+const socials = (await getCollection('socials')).map((entry) => entry.data);
+const iconMap: Record<string, string> = {
+	x: 'tabler:brand-x',
+	twitter: 'tabler:brand-x',
+	github: 'tabler:brand-github',
+	linkedin: 'tabler:brand-linkedin',
+	email: 'tabler:mail',
+	mastodon: 'tabler:brand-mastodon',
+};
 ---
 
 <section class="flex grow flex-col gap-1 md:flex-row md:min-h-[calc(100vh-8rem)]">
@@ -46,8 +59,29 @@ const { eyebrow, title, highlight, description, actions = [] } = Astro.props;
 						</a>
 					))}
 				</div>
-			)}
-		</div>
+			)}			
+			{/* social links */}
+			{socials.length > 0 && (
+				<div class="flex flex-wrap gap-4">
+					{socials.map((social) => {
+						const iconName = social.id ? iconMap[social.id.toLowerCase()] : undefined;
+						return (
+							<a
+								href={social.href}
+								target={social.href.startsWith('http') ? '_blank' : undefined}
+								rel={social.href.startsWith('http') ? 'noreferrer' : undefined}
+								class="inline-flex items-center gap-2 text-[var(--color-off-black)] hover:text-[var(--color-brand-orange)] transition-colors"
+							>
+								{iconName ? (
+									<Icon name={iconName} size={24} strokeWidth={1.5} />
+								) : (
+									social.label
+								)}
+							</a>
+						);
+					})}
+				</div>
+			)}		</div>
 	</div>
 	<div class="rounded-xl overflow-hidden p-5 md:p-10 relative z-10 aspect-square bg-[var(--color-brand-yellow)] md:aspect-auto md:w-1/2 flex items-center justify-center">
 		<slot name="visual">
