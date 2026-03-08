@@ -30,7 +30,7 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<section class="flex grow flex-col gap-1 md:flex-row md:min-h-[calc(100vh-8rem)]">
+<section class="flex grow flex-col gap-1 md:flex-row min-h-[calc(100vh-4rem-var(--grid-cell))] md:min-h-[calc(100vh-5rem-var(--grid-cell))]" style="padding-bottom: var(--grid-cell);">
 	<div class="rounded-xl overflow-hidden bg-[var(--color-brand-yellow)] p-5 md:p-10 md:w-1/2">
 		<div class="flex flex-col h-full gap-8 md:gap-10">
 			{eyebrow && <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-off-black)]/60 m-0">{eyebrow}</p>}
