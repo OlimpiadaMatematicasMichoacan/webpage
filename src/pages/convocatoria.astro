@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 import PageLayout from '../layouts/PageLayout.astro';
 import whitebelt from '../assets/belts/whitebelt.png';
 import yellowbelt from '../assets/belts/yellowbelt.png';
@@ -37,12 +39,21 @@ const grupos = [
 				<a href="https://registro.olimpiadamatematicasmichoacan.org:8443/login/signup.php?" target="_blank" rel="noreferrer" class="btn btn-primary">Registro</a>
 				<a href="https://registro.olimpiadamatematicasmichoacan.org:8443/login/index.php" target="_blank" rel="noreferrer" class="btn btn-secondary">Acceder a la plataforma</a>
 			</div>
+			<p class="text-base text-muted m-0">
+				<Icon name={"tabler:brand-whatsapp"} size={20} stroke-width={1.5} class="inline text-ink" aria-hidden={true}/>
+				Únete a la <a href="https://chat.whatsapp.com/EusFmjYySlF2E8tmZPZHss" target="_blank" rel="noreferrer" class="underline pill pill--blue">Comunidad de WhatsApp</a> 
+				para recibir notificaciones y anuncios de la Olimpiada de Matemáticas.
+			</p>
 		</header>
 
 		<section class="space-y-4">
 			<h2 class="text-2xl font-semibold text-ink m-0">Fechas importantes</h2>
+			<p class="text-base text-muted m-0">
+				Los <a href="https://registro.olimpiadamatematicasmichoacan.org:8443/login/signup.php?" target="_blank" rel="noreferrer" class="pill pill--green">exámenes de colocación</a> 
+				están divididos en cuatro categorías que van desde <strong>4° de primaria hasta 2° año de preparatoria</strong> o equivalente:
+			</p>
 			<ul class="space-y-2 text-base text-muted list-disc pl-5">
-				<li><strong >Examen de colocación:</strong> <span class="pill pill--green">12, 13 o 14 de febrero de 2026</span>.</li>
+				<li><strong >Primer examen de colocación:</strong> <span class="pill pill--green">12, 13 o 14 de febrero de 2026</span>.</li>
 				<li><strong >Segundo examen de colocación:</strong> <span class="pill pill--green">por definir</span>.</li>
 			</ul>
 			<p class="text-base text-muted m-0">Puedes escoger el día y el horario que más te convenga para realizar el examen.</p>

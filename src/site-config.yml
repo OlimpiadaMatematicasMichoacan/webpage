@@ -9,6 +9,8 @@ site:
       href: "/acerca"
     - label: "Noticias"
       href: "/blog"
+    - label: "Convocatoria"
+      href: "/convocatoria"
     - label: "Prepárate"
       href: "/recursos"
     - label: "Acceder"
