@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import PostList from '../components/PostList.astro';
 import Numbers from '../components/Numbers.astro';
 import Values from '../components/Values.astro';
+import BasicProblems from '../components/BasicProblems.astro';
 import Sponsors from '../components/Sponsors.astro';
 import Testimonials from '../components/Testimonials.astro';
 import { getSite } from '../utils/consts';
@@ -46,6 +47,15 @@ const site = await getSite();
 			{ title: 'Comunidad', description: 'Creamos un espacio donde estudiantes comparten su pasión por las matemáticas.' },
 			{ title: 'Accesibilidad', description: 'Las matemáticas son para todos, sin importar origen o recursos.' },
 			{ title: 'Mentoría', description: 'Exalumnos y profesores guían a las nuevas generaciones.' },
+		]}
+	/>
+
+	<BasicProblems
+		eyebrow="Problemas"
+		Problems={[
+			{ image: 'tablaSumas.png', description: 'A mi tabla de sumas le cayó tinta encima. ¿Qué número debe ir en lugar de la estrella?'},
+			{ image: 'cubosPagina.png', description: '¿Cuántos cubitos más deben agregarse para formar un cubo más grande?'},
+			{ image: 'pentagono.png', description: '¿Qué porcentaje del pentágono está sombreado?'},
 		]}
 	/>
 

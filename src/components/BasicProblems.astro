@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+
+const allImages = import.meta.glob('../assets/problems/*.{png,jpg,jpeg,webp}', { eager: true }); 
+const imagesMap = Object.fromEntries(
+  Object.entries(allImages).map(([path, module]) => {
+    const fileName = path.split('/').pop();
+    return [fileName, module.default];
+  })
+);
+
+interface Problem {
+  image: string;
+  description: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  Problems?: Problem[];
+}
+
+const {
+  eyebrow,
+  title = 'Son de ingenio, no de memorización',
+  Problems = [],
+} = Astro.props as Props;
+---
+
+<section class="flex flex-col gap-1">
+  <div class="rounded-xl overflow-hidden p-5 md:p-10 flex bg-[var(--color-paper)]">
+    <div class="space-y-3 max-w-2xl">
+      {eyebrow && <p class="text-sm font-semibold uppercase tracking-widest text-[var(--color-ink)]  m-0">{eyebrow}</p>}
+      {title && <h2 class="md:text-2xl text-xl md:leading-tight antialiased m-0">{title}</h2>}
+    </div>
+  </div>
+
+  {Problems.length > 0 && (
+    <div class="grid gap-1 md:grid-cols-3 h-full">
+      {Problems.map((item) => (
+          <div class="rounded-xl bg-[var(--color-paper)] overflow-hidden p-5 md:p-10 h-full">
+            <Image
+							src={imagesMap[item.image]}
+              alt={item.description}
+							class="aspect-10/16 w-full h-auto object-contain transition duration-400 group-hover:scale-[1.02] sm:aspect-4/3"
+						/>
+            <p class="text-base text-[var(--color-ink)] m-0 mt-2">{item.description}</p>
+          </div>
+        ))}
+    </div>
+  )}
+</section>
