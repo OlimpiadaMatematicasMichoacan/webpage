@@ -18,11 +18,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  experimental: {
-    fonts: [{
-        provider: fontProviders.fontsource(),
-        name: "Raleway",
-        cssVariable: "--font-main",
-    }]
-    }
+  fonts: [{
+      provider: fontProviders.fontsource(),
+      name: "Raleway",
+      cssVariable: "--font-main",
+  }]
 });
