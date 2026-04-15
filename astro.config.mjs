@@ -18,9 +18,14 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  fonts: [{
+  fonts: [
+    {
       provider: fontProviders.fontsource(),
       name: "Raleway",
       cssVariable: "--font-main",
-  }]
+    },
+  ],
+  experimental: {
+    rustCompiler: true,
+  },
 });
