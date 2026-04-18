@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.8.2.min.js"></script>
+<script type="text/javascript">
+Bokeh.set_log_level("info");
+</script>
+  </head>
+  <body>
+    <div id="f9e05c0b-1ad0-435f-ac74-2428e4960767" data-root-id="p3196" style="display: contents;"></div>
+  
+    <script type="application/json" id="f9e296c2-c8a3-472f-a835-aee9fdf1f37a">
+      {"b4216005-45f5-4bb6-abde-a90e2c3fddf8":{"version":"3.8.2","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"p3236","attributes":{"notifications":{"type":"object","name":"Notifications","id":"p3237"}}},"roots":[{"type":"object","name":"Figure","id":"p3196","attributes":{"height":550,"x_range":{"type":"object","name":"Range1d","id":"p3206","attributes":{"start":-0.5}},"y_range":{"type":"object","name":"DataRange1d","id":"p3198"},"x_scale":{"type":"object","name":"LinearScale","id":"p3207"},"y_scale":{"type":"object","name":"LinearScale","id":"p3208"},"title":{"type":"object","name":"Title","id":"p3199","attributes":{"text":"Participaci\u00f3n por ciudad"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p3231","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p3222","attributes":{"selected":{"type":"object","name":"Selection","id":"p3223","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p3224"},"data":{"type":"map","entries":[["Ciudad",{"type":"ndarray","array":["Morelia","Uruapan","L\u00e1zaro C\u00e1rdenas","Quiroga","Huetamo","Ario De Rosales","Pur\u00e9pero","Michoac\u00e1n","Pedernales","Ciudad Hidalgo","Ucareo","P\u00e1tzcuaro","Aguililla","Yur\u00e9cuaro","Huandacareo","Sahuayo","Angangueo","Puru\u00e1ndiro","Villa Madero","Zinap\u00e9cuaro","Quer\u00e9ndaro","San Pedro J\u00e1cuaro","Zirahu\u00e9n","Jer\u00e1huaro","Zit\u00e1cuaro","Infiernillo","Epitacio Huerta","Paracho","Ocumicho","Tar\u00edmbaro","Coeneo","Coahuayana","Cher\u00e1n","Tac\u00e1mbaro","Santa Clara Del Cobre","Erongar\u00edcuaro","Coalcom\u00e1n","Arantepacua","San Francisco De Los Reyes","San Antonio","Charapan","Santa Ana Maya","La Huacana","Apatzing\u00e1n","Zamora","Cuitzeo Del Porvenir","Chavinda"],"shape":[47],"dtype":"object","order":"little"}],["count",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/+NiZGCIZ2BgkANiPijmBWJ2JMyGhFnRMAsaZkbCTAQwI4UYAN+gDBi8AAAA"},"shape":[47],"dtype":"int32","order":"little"}],["angle",{"type":"ndarray","array":{"type":"bytes","data":"H4sIAAEAAAAC/yu3q7qmkMbhUPW4Wrs196P9q28r985ivma/XFLs0NPuI3A6xabpmIHIYSh/CwatFP/uVPWcjRi0uWfvcuWotThp3Su2O/2rl+OkIeYsxKAh8tMppNsHjAYAB7Rd13gBAAA="},"shape":[47],"dtype":"float64","order":"little"}],["color",{"type":"ndarray","array":["#aec7e8","#9edae5","#98df8a","#dbdb8d","#d62728","#c7c7c7","#e377c2","#7f7f7f","#ffbb78","#9467bd","#f7b6d2","#d62728","#7f7f7f","#8c564b","#1f77b4","#c49c94","#8c564b","#e377c2","#9edae5","#f7b6d2","#1f77b4","#d62728","#aec7e8","#c5b0d5","#ff7f0e","#ffbb78","#c5b0d5","#bcbd22","#1f77b4","#dbdb8d","#c7c7c7","#ffbb78","#ff9896","#ff9896","#c49c94","#8c564b","#f7b6d2","#17becf","#bcbd22","#bcbd22","#9edae5","#2ca02c","#2ca02c","#9467bd","#ff7f0e","#17becf","#98df8a"],"shape":[47],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p3232","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p3233"}}},"glyph":{"type":"object","name":"Wedge","id":"p3228","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"type":"object","name":"CumSum","id":"p3220","attributes":{"field":"angle","include_zero":true}}},"end_angle":{"type":"expr","expr":{"type":"object","name":"CumSum","id":"p3221","attributes":{"field":"angle"}}},"line_color":{"type":"value","value":"white"},"fill_color":{"type":"field","field":"color"}}},"nonselection_glyph":{"type":"object","name":"Wedge","id":"p3229","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"id":"p3220"}},"end_angle":{"type":"expr","expr":{"id":"p3221"}},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Wedge","id":"p3230","attributes":{"x":{"type":"value","value":0},"y":{"type":"value","value":1},"radius":{"type":"value","value":0.4},"start_angle":{"type":"expr","expr":{"id":"p3220"}},"end_angle":{"type":"expr","expr":{"id":"p3221"}},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p3205","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p3219","attributes":{"renderers":"auto","tooltips":"@Ciudad: @count","sort_by":null}}]}},"toolbar_location":null,"left":[{"type":"object","name":"LinearAxis","id":"p3214","attributes":{"visible":false,"ticker":{"type":"object","name":"BasicTicker","id":"p3215","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p3216"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p3217"}}}],"below":[{"type":"object","name":"LinearAxis","id":"p3209","attributes":{"visible":false,"ticker":{"type":"object","name":"BasicTicker","id":"p3210","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p3211"},"major_label_policy":{"type":"object","name":"AllLabels","id":"p3212"}}}],"center":[{"type":"object","name":"Grid","id":"p3213","attributes":{"axis":{"id":"p3209"},"grid_line_color":null}},{"type":"object","name":"Grid","id":"p3218","attributes":{"dimension":1,"axis":{"id":"p3214"},"grid_line_color":null}},{"type":"object","name":"Legend","id":"p3234","attributes":{"items":[{"type":"object","name":"LegendItem","id":"p3235","attributes":{"label":{"type":"field","field":"Ciudad"},"renderers":[{"id":"p3231"}]}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('f9e296c2-c8a3-472f-a835-aee9fdf1f37a').textContent;
+              const render_items = [{"docid":"b4216005-45f5-4bb6-abde-a90e2c3fddf8","roots":{"p3196":"f9e05c0b-1ad0-435f-ac74-2428e4960767"},"root_ids":["p3196"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
